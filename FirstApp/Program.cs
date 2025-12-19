@@ -7,6 +7,12 @@ class Area
         // AOC.Calculate();
         // Feet.Calculate();
         // Second.Calculate();
-        Conditional.cal();
+        // Conditional.cal();
+        // While.cal();
+        // DoWhile.cal();
+        // ForLoop.cal();
+        // Continue.cal();
+        // Loan.cal();
+        Financial.Run();
     }
 }
