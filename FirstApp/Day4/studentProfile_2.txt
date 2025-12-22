@@ -1,0 +1,89 @@
+EXTENDED TASK: Advanced Properties in C#
+
+--------------------------------------------------
+
+Task Title:
+Student Profile System – Advanced Property Types
+
+--------------------------------------------------
+
+Objective:
+To understand and implement the following property types in C#:
+
+1. Normal properties with validation
+2. Auto-implemented properties
+3. Read-only properties
+4. Write-only properties
+
+--------------------------------------------------
+
+Base Scenario:
+You are developing a Student Profile System for a college application.
+
+Each student has the following data:
+1. Name
+2. Age
+3. Marks
+4. Student ID
+5. Password
+
+Different data requires different access rules.
+
+--------------------------------------------------
+
+PART A: Auto-Implemented Property
+
+Requirement:
+Store the Student ID.
+
+Rules:
+1. No validation required.
+2. Direct get and set access allowed.
+
+Task Instruction:
+Use an auto-implemented property.
+
+Hint:
+Auto-implemented properties do not require a private backing field.
+
+--------------------------------------------------
+
+PART B: Read-Only Property
+
+Requirement:
+Calculate Result Status based on marks.
+
+Rules:
+1. Marks ≥ 40 → "Pass"
+2. Marks < 40 → "Fail"
+3. Value should be readable.
+4. Value must NOT be set from outside the class.
+
+Task Instruction:
+Create a read-only property.
+
+--------------------------------------------------
+
+PART C: Write-Only Property
+
+Requirement:
+Store the password securely.
+
+Rules:
+1. Password can be set.
+2. Password must NOT be readable.
+3. Password length must be at least 6 characters.
+
+Task Instruction:
+Create a write-only property.
+
+--------------------------------------------------
+
+PART D: Normal Property with Validation (Revision)
+
+Requirement:
+Validate the following fields:
+
+1. Name cannot be empty.
+2. Age must be greater than 0.
+3. Marks must be between 0 and 100.

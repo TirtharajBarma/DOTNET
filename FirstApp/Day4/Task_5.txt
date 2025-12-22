@@ -1,0 +1,54 @@
+PART 5: Property with Private Set
+
+--------------------------------------------------
+
+Requirement:
+Store the Registration Number.
+
+Rules:
+1. Value should be readable from outside the class.
+2. Value should be modifiable only inside the class.
+
+Task Instruction:
+1. Use a property with a public `get` and a private `set`.
+2. Assign the value internally (using a constructor or a method).
+
+--------------------------------------------------
+
+PART 6: Init-Only Property
+
+Requirement:
+Store the Admission Year.
+
+Rules:
+1. Value should be set only at the time of object creation.
+2. Value must not be modified later.
+
+Task Instruction:
+1. Use an init-only property.
+2. Set the value using object initializer syntax.
+
+--------------------------------------------------
+
+PART 7: Expression-Bodied Property
+
+Requirement:
+Create a property to calculate Percentage.
+
+Rules:
+1. Percentage = (Marks / 100) × 100.
+2. Property should be read-only.
+3. Use the shortest possible syntax.
+
+Task Instruction:
+Implement an expression-bodied property.
+
+--------------------------------------------------
+
+PART 8: Usage Task
+
+In the `Main()` method:
+1. Create a `Student` object.
+2. Assign values using all allowed properties.
+3. Display all readable properties.
+4. Try accessing restricted properties and observe compiler errors.

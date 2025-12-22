@@ -1,0 +1,67 @@
+TASK: Implement Indexer Overloading in C#
+
+Objective:
+To understand and implement indexer overloading by allowing a class to be accessed using different parameter types.
+
+--------------------------------------------------
+
+Scenario:
+You are designing a Library Management System.
+
+Each book in the library has:
+1. A Book ID (integer)
+2. A Book Title (string)
+
+Users should be able to:
+1. Access books using Book ID
+2. Access books using Book Title
+
+This must be achieved using indexer overloading, NOT methods.
+
+--------------------------------------------------
+
+Task Requirements:
+
+PART 1: Internal Data Storage
+1. Use a suitable collection to store book data.
+2. Book ID should be used as the key.
+3. Book Title should be used as the value.
+4. The data structure must be private.
+
+--------------------------------------------------
+
+PART 2: Integer-Based Indexer
+Requirement:
+1. Allow access to the book title using Book ID.
+2. Support both reading and writing operations.
+
+Example Usage:
+library[101] = "C# Basics";
+Console.WriteLine(library[101]);
+
+--------------------------------------------------
+
+PART 3: String-Based Indexer
+Requirement:
+1. Allow access using Book Title.
+2. Return the first matching title.
+3. Read-only access only.
+
+Example Usage:
+Console.WriteLine(library["C# Basics"]);
+
+--------------------------------------------------
+
+PART 4: Constraints
+1. Do not expose the internal collection directly.
+2. Do not use GetBook() or SetBook() methods.
+3. Use indexers only.
+
+--------------------------------------------------
+
+PART 5: Usage Task
+In Main():
+1. Create a Library object.
+2. Add at least three books using the integer-based indexer.
+3. Retrieve books using both indexers.
+4. Observe the behavior when a title is not found.

@@ -1,0 +1,70 @@
+STUDENT PROFILE SYSTEM – BASIC PROPERTIES WITH VALIDATION
+
+--------------------------------------------------
+
+Problem Statement:
+You are designing a Student Profile System.
+
+--------------------------------------------------
+
+Student Data:
+Each student has the following attributes:
+1. Name
+2. Age
+3. Marks
+
+--------------------------------------------------
+
+Rules (Business Logic):
+1. Name cannot be empty.
+2. Age must be greater than 0.
+3. Marks must be between 0 and 100.
+
+--------------------------------------------------
+
+System Requirements:
+You must:
+1. Store data using private variables.
+2. Expose data using public properties.
+3. Apply validation logic inside the `set` accessor of each property.
+
+--------------------------------------------------
+
+Task Requirements:
+
+PART 1: Create the Student Class
+
+Step 1:
+Create a class named `Student`.
+
+The class should contain the following private fields:
+1. name
+2. age
+3. marks
+
+--------------------------------------------------
+
+PART 2: Create Properties
+
+Create the following properties for the `Student` class:
+
+1. Name Property
+   - get → returns `name`
+   - set → assigns value only if it is not empty
+
+2. Age Property
+   - get → returns `age`
+   - set → assigns value only if it is greater than 0
+
+3. Marks Property
+   - get → returns `marks`
+   - set → assigns value only if the value is between 0 and 100
+
+--------------------------------------------------
+
+PART 3: Use the Properties
+
+In `Main()`:
+1. Create a `Student` object.
+2. Assign values using the public properties.
+3. Verify that invalid values are rejected.

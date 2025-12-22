@@ -1,0 +1,131 @@
+INSURANCE MANAGEMENT SYSTEM (OOP BASED)
+
+--------------------------------------------------
+
+Problem Statement:
+Design and implement an Insurance Management System using C# and advanced Object-Oriented Programming concepts.
+
+--------------------------------------------------
+
+Title:
+Insurance Management System using Advanced OOP Concepts in C#
+
+--------------------------------------------------
+
+Objective:
+To design and implement a console-based Insurance Management System in C# that demonstrates the use of the following advanced OOP concepts:
+
+1. Sealed classes
+2. Abstract base classes
+3. Inheritance and method overriding
+4. Method hiding using the `new` keyword
+5. Init-only properties
+6. Encapsulation with validation
+7. Indexers
+8. Runtime polymorphism
+
+--------------------------------------------------
+
+Problem Description:
+You are required to build an Insurance Management System for an insurance company that manages different types of insurance policies.  
+The system must follow real-world business rules and strict object-oriented design principles.
+
+--------------------------------------------------
+
+System Requirements:
+
+PART 1: Security Module
+
+1. Create a sealed class that handles user authentication.
+2. This class must NOT be inherited.
+3. It should display a confirmation message after successful authentication.
+
+--------------------------------------------------
+
+PART 2: Base Insurance Policy
+
+1. Create an abstract base class named `InsurancePolicy`.
+2. The class should contain:
+   - An init-only property for Policy Number
+   - A validated Premium property (Premium must be greater than zero)
+   - A Policy Holder Name
+
+3. Include the following methods:
+   - A virtual method to calculate the premium
+   - A method to display generic policy information
+
+--------------------------------------------------
+
+PART 3: Derived Insurance Types
+
+A) Life Insurance
+
+1. Inherit from `InsurancePolicy`.
+2. Override the premium calculation method by adding a fixed life-insurance charge.
+3. Demonstrate method hiding by redefining the policy display method using the `new` keyword.
+
+B) Health Insurance
+
+1. Inherit from `InsurancePolicy`.
+2. Override the premium calculation method.
+3. Seal the overridden method to prevent further modification.
+
+--------------------------------------------------
+
+PART 4: Policy Directory (Indexer Implementation)
+
+1. Create a class that stores multiple insurance policies.
+2. Use a `List` internally to store policy objects.
+3. Implement indexers to:
+   - Access policies by index
+   - Access policies by policy holder name
+
+--------------------------------------------------
+
+PART 5: Main Program Execution
+
+The main program should perform the following steps:
+
+1. Authenticate the user.
+2. Create Life Insurance and Health Insurance policy objects.
+3. Store the policies in the policy directory.
+4. Retrieve policy details using both indexers.
+5. Demonstrate:
+   - Runtime polymorphism using overridden methods
+   - Method hiding using base-class and derived-class references
+
+--------------------------------------------------
+
+Expected Output:
+
+User authenticated successfully
+
+Amit
+102
+Life Premium: 5500
+Health Premium: 8000
+Life Insurance Policy
+Insurance Policy
+
+--------------------------------------------------
+
+Explanation of Output:
+
+1. Authentication Message  
+   - Displayed by the sealed security class.
+
+2. Indexer by Index  
+   - Displays the policy holder name of the first policy (Amit).
+
+3. Indexer by Name  
+   - Displays the policy number of the policy holder named Neha.
+
+4. Runtime Polymorphism  
+   - Correct premium calculation based on the actual object type.
+
+5. Method Hiding Demonstration  
+   - Calling `ShowPolicy()` using a derived-class reference prints:
+     Life Insurance Policy
+
+   - Calling the same method using a base-class reference prints:
+     Insurance Policy
