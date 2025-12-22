@@ -16,7 +16,7 @@ abstract class InsurancePolicy
     private double _premium;
     public double Premium
     {
-        get => _premium;
+        get => _premium; 
         protected set
         {
             if(value <= 0) throw new Exception();
@@ -37,10 +37,10 @@ abstract class InsurancePolicy
 
 class LifeInsurance : InsurancePolicy
 {
-    private double LifeCharge = 500;
+    private readonly double LifeCharge = 500;
     public override void CalculatePremium()
     {
-        Premium = Premium + LifeCharge;
+        Premium += LifeCharge;
     }
 
     public new void display()
@@ -53,18 +53,23 @@ class HealthInsurance : InsurancePolicy
 {
     public sealed override void CalculatePremium()
     {
-        Premium = Premium * 1.6;
+        Premium *= 1.6;
     }
 }
 
 class PolicyDirectory
 {
     private List <InsurancePolicy> pol = [];
+    // -> whose types IS Insurance Policy
     
     public void AddPolicy(InsurancePolicy policy)
     {
         pol.Add(policy);
     }
+    // Internally
+    // pol
+    // ├── [0] → LifeInsurance object
+    // └── [1] → HealthInsurance object
 
     public InsurancePolicy this[int index]
     {
@@ -73,15 +78,14 @@ class PolicyDirectory
 
     public InsurancePolicy this[string name]
     {
-        get
-        {
-            foreach(var policy in pol)
-            {
-                if(policy.PolicyHolderName == name)
-                    return policy;
-            }
-            return null;
-        }
+        get => pol.FirstOrDefault(p => p.PolicyHolderName == name);
     }
 }
 
+// PolicyDirectory dir = new PolicyDirectory();
+
+// LifeInsurance life = new LifeInsurance();
+// HealthInsurance health = new HealthInsurance();
+
+// dir.AddPolicy(life);
+// dir.AddPolicy(health);

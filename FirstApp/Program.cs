@@ -25,7 +25,8 @@ class Area
 
 
         //! parameterized constructor vs default constructor
-        // Product p = new Product
+        // Product p = new Product          //! This is object initializer not parameterized constructor
+        //! object is created first and then value is added internally -> p.name = value
         // {
         //     Name = "Laptop",
         //     Price = 50000

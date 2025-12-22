@@ -6,7 +6,7 @@ class Bank
     private double time, roi, fdAmt;
     private static int bankObjectCount;
 
-    static Bank()
+    static Bank()           // static constructor
     {
         bankObjectCount = 0;
         Console.WriteLine("Static constructor of Bank called");

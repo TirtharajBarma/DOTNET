@@ -2,21 +2,21 @@ using System;
 
 class Student
 {
-    private string name;
-    private int age;
-    private double marks;
+    private string _name;
+    private int _age;
+    private double _marks;
 
     public string Name      // property not method -> property is syntax sugar for two hidden methods.
     {
         get                 // method
         {
-            return name;
+            return _name;
         }
         set
         {
             if (!string.IsNullOrEmpty(value))
             {
-                name = value;
+                _name = value;
             } else
             {
                 Console.WriteLine("Not allowed");
@@ -28,13 +28,13 @@ class Student
     {
         get
         {
-            return age;
+            return _age;
         }
         set
         {
             if(value > 0)
             {
-                age = value;
+                _age = value;
             } else
             {
                 Console.WriteLine("Not allowed");
@@ -46,13 +46,13 @@ class Student
     {
         get
         {
-            return marks;
+            return _marks;
         } 
         set
         {
             if(value > 0 && value < 100)
             {
-                marks  = value;
+                _marks  = value;
             }
             else
             {

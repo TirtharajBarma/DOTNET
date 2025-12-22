@@ -2,29 +2,29 @@ using System;
 
 class Students
 {
-    private int reg_no, admissionYear;
-    private double marks;
-
-    // set only from class not from outside
+    //Task1 -> set only from class not from outside
     public int Reg_no{get; private set;}
     public Students(int val)
     {
         Reg_no = val;
     }
 
-    // set value only at the time of object creation
+    //Task2 -> set value only at the time of object creation
     public int AdmissionYear {get; init;}
+    // object-initializer not s.AdmissionYear = 2024; 
 
-    public double Marks
+    // Task3 -> expression-bodied property    
+    private double _marks;      //! storage
+    public double Marks         //! logic/access control
     {
-        get => marks;
+        get => _marks;
         set
         {
             if (value >= 0 && value <= 100)
-                marks = value;
+                _marks = value;
         }
     }
-    public double Percentage => marks;
+    public double Percentage => _marks;
 }
         // 1️⃣ Create object using constructor
         // Students s = new Students(101)
@@ -50,31 +50,3 @@ class Students
         // s.AdmissionYear = 2004;
         // s.Reg_no = 999;
 
-
-
-// class Account
-// {
-//     public int AccountNo { get; private set; }
-
-//     public Account(int accNo)
-//     {
-//         AccountNo = accNo;
-//     }
-// }
-
-// class Student
-// {
-//     public int RollNo { get; init; }
-//     public string Name { get; init; }
-// }
-
-// class Rectangle
-// {
-//     public double Length { get; set; }
-//     public double Width { get; set; }
-//     public double Area => Length * Width;
-// }
-
-// Expression-Bodied Properties
-
-// what are all these 3 block of code
