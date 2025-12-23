@@ -59,3 +59,23 @@ class Student1
         }
     }
 }
+
+        // Student1 s = new Student1();
+
+        // // Auto-implemented property
+        // s.StudentId = 101;
+
+        // // Normal properties with validation
+        // s.Name = "Amit";
+        // s.Age = 20;
+        // s.Marks = 75;
+
+        // // Write-only property
+        // s.Password = "secure123";
+
+        // // Output
+        // Console.WriteLine("Student ID: " + s.StudentId);
+        // Console.WriteLine("Name: " + s.Name);
+        // Console.WriteLine("Age: " + s.Age);
+        // Console.WriteLine("Marks: " + s.Marks);
+        // Console.WriteLine("Result: " + s.Result);

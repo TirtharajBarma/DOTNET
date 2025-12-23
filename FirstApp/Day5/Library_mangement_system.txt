@@ -1,0 +1,291 @@
+LIBRARY MANAGEMENT SYSTEM  
+Scenario‑Based Assignment  
+(Strict Task Instructions)
+
+==================================================
+TASK 1: ABSTRACT CLASS & ABSTRACT METHODS
+==================================================
+
+What the student MUST create:
+
+1. ONE abstract base class  
+   - Name: `LibraryItem`
+
+2. The abstract class MUST contain:
+   - Exactly **3 properties**:
+     • Title  
+     • Author  
+     • ItemID  
+
+   - Exactly **2 abstract methods**:
+     • Method to display item details  
+     • Method to calculate late fee  
+
+3. TWO concrete child classes:
+   - Book  
+   - Magazine  
+
+4. Each child class MUST:
+   - Inherit from `LibraryItem`
+   - Override **both** abstract methods
+
+5. Late fee rules (MANDATORY):
+   - Book → 1 unit per day
+   - Magazine → 0.5 units per day
+
+--------------------------------------------------
+Proof Required:
+--------------------------------------------------
+- Create:
+  • 1 Book object  
+  • 1 Magazine object  
+
+- Display:
+  • Title  
+  • Author  
+  • ItemID  
+  • Late fee for **exactly 3 days**
+
+==================================================
+TASK 2: INTERFACES & MULTIPLE INHERITANCE
+==================================================
+
+What the student MUST create:
+
+1. ONE interface:
+   - Name: `IReservable`
+   - Contains ONE method for reserving an item
+
+2. ONE interface:
+   - Name: `INotifiable`
+   - Contains ONE method that accepts a message
+
+3. The `Book` class MUST:
+   - Implement both interfaces
+   - Implement all interface methods
+
+--------------------------------------------------
+Proof Required:
+--------------------------------------------------
+- Call:
+  • Reservation method  
+  • Notification method  
+
+- Output MUST clearly show:
+  • Reservation success  
+  • Notification message sent
+
+==================================================
+TASK 3: DYNAMIC POLYMORPHISM
+==================================================
+
+What the student MUST create:
+
+1. ONE collection that stores:
+   - Objects of type `LibraryItem`
+
+2. Add to the collection:
+   - 1 Book  
+   - 1 Magazine  
+
+3. Use:
+   - A loop that accesses items **only through the parent type**
+
+--------------------------------------------------
+Proof Required:
+--------------------------------------------------
+- Correct method execution:
+  • Book → Book version of method  
+  • Magazine → Magazine version of method  
+
+- Mandatory Explanation (1–2 lines):
+  “Method selection happens at runtime.”
+
+==================================================
+TASK 4: EXPLICIT INTERFACE IMPLEMENTATION
+==================================================
+
+What the student MUST create:
+
+1. Modify the `Book` class so that:
+   - Interface methods are **explicitly implemented**
+
+2. The class MUST NOT allow:
+   - Direct calling of interface methods using a `Book` object
+
+--------------------------------------------------
+Proof Required:
+--------------------------------------------------
+- Call interface methods using:
+  • `IReservable` reference  
+  • `INotifiable` reference  
+
+- Mandatory Explanation (1 sentence):
+  Why direct access is restricted
+
+==================================================
+TASK 5: NAMESPACES & NESTED NAMESPACES
+==================================================
+
+What the student MUST create:
+
+1. ONE main namespace:
+   - `LibrarySystem`
+
+2. TWO nested namespaces inside it:
+   - `Items`
+   - `Users`
+
+3. Placement rules:
+   - Book and Magazine → `LibrarySystem.Items`
+   - Member class → `LibrarySystem.Users`
+
+4. ONE namespace alias:
+   - Alias for `LibrarySystem.Items`
+
+--------------------------------------------------
+Proof Required:
+--------------------------------------------------
+- Create Book and Magazine objects using the alias
+- Write **2 points** explaining:
+  1. Why nested namespaces are useful  
+  2. Why aliases improve readability
+
+==================================================
+TASK 6: PARTIAL & STATIC CLASSES
+==================================================
+
+    What the student MUST create:
+
+    1. ONE partial class:
+    - Name: `LibraryAnalytics`
+
+    2. The class MUST be split into:
+    - Two separate parts
+
+    3. The class MUST contain:
+    - ONE static property → total borrowed items
+    - ONE static method → display analytics
+
+--------------------------------------------------
+Proof Required:
+--------------------------------------------------
+- Increase borrowed count
+- Display total borrowed items
+- Mandatory Explanation (1 line):
+  Why static members are used
+
+==================================================
+TASK 7: ENUMERATIONS (ENUMS)
+==================================================
+
+What the student MUST create:
+
+1. ONE enum:
+   - Name: `UserRole`
+   - Values:
+     • Admin  
+     • Librarian  
+     • Member  
+
+2. ONE enum:
+   - Name: `ItemStatus`
+   - Values:
+     • Available  
+     • Borrowed  
+     • Reserved  
+     • Lost  
+
+3. Assign:
+   - A role to a user
+   - A status to a library item
+
+--------------------------------------------------
+Proof Required:
+--------------------------------------------------
+- Display:
+  • User role  
+  • Item status  
+
+- Mandatory Explanation (1 sentence):
+  Why enums are better than strings
+
+==================================================
+BONUS TASK (HIGH WEIGHTAGE)
+==================================================
+
+What the student MUST create:
+
+1. Modify notification logic:
+   - Admin → System alert
+   - Member → Borrowing update
+
+2. Add ONE new item type:
+   - `eBook`
+
+3. `eBook` MUST:
+   - Inherit from `LibraryItem`
+   - Include one digital‑specific behavior
+
+--------------------------------------------------
+Proof Required:
+--------------------------------------------------
+- Demonstrate:
+  • Role‑based notification difference  
+  • eBook behavior execution  
+
+==================================================
+EXPECTED OUTPUT (EXAMINER‑FRIENDLY)
+==================================================
+
+TASK 1 OUTPUT:
+Item Type: Book  
+Title: C# Fundamentals  
+Author: John Doe  
+Item ID: 101  
+Late Fee for 3 days: 3.0  
+
+Item Type: Magazine  
+Title: Tech Today  
+Author: Jane Doe  
+Item ID: 201  
+Late Fee for 3 days: 1.5  
+
+TASK 2 OUTPUT:
+Book reserved successfully.  
+Notification sent: Your reserved book is ready for pickup.
+
+TASK 3 EXPLANATION:
+The method executed depends on the object type at runtime, not the reference type.
+
+TASK 4 EXPLANATION:
+Explicit implementation restricts direct access and exposes functionality only through interfaces.
+
+TASK 5 EXPLANATION:
+1. Nested namespaces organize large projects logically.  
+2. Aliases reduce long namespace references and improve readability.
+
+TASK 6 OUTPUT:
+Total Items Borrowed: 5  
+
+TASK 7 OUTPUT:
+User Role: Member  
+Item Status: Borrowed  
+
+BONUS OUTPUT:
+Admin Alert: System maintenance scheduled.  
+Member Notification: Your borrowed item is due tomorrow.  
+eBook downloaded successfully.
+
+==================================================
+FINAL EVALUATION CHECKLIST (FOR FACULTY)
+==================================================
+
+- Abstraction → Different late fee logic  
+- Interfaces → Reservation & notification  
+- Polymorphism → Runtime method selection  
+- Explicit Interface → Interface‑only access  
+- Namespaces → Proper hierarchy & alias  
+- Static → Shared analytics data  
+- Enums → Controlled values  
+- Bonus → Scalable design

@@ -82,10 +82,37 @@ class PolicyDirectory
     }
 }
 
-// PolicyDirectory dir = new PolicyDirectory();
+        // PolicyDirectory dir = new PolicyDirectory();
+        // // 2️⃣ Create Life Insurance Policy
+        // LifeInsurance life = new LifeInsurance
+        // {
+        //     Policy_Number = 101,
+        //     PolicyHolderName = "Amit",
+        // };
+        // life.Premium = 2000;          // allowed (protected set, inside derived logic)
+        // life.CalculatePremium();      // adds LifeCharge
 
-// LifeInsurance life = new LifeInsurance();
-// HealthInsurance health = new HealthInsurance();
+        // // 3️⃣ Create Health Insurance Policy
+        // HealthInsurance health = new HealthInsurance
+        // {
+        //     Policy_Number = 102,
+            // PolicyHolderName = "Ravi",
+        // };
+        // health.Premium = 3000;
+        // health.CalculatePremium();    // multiplies premium
 
-// dir.AddPolicy(life);
-// dir.AddPolicy(health);
+        // // 4️⃣ Add policies to directory
+        // dir.AddPolicy(life);
+        // dir.AddPolicy(health);
+
+        // // 5️⃣ Access using indexer (int)
+        // InsurancePolicy p1 = dir[0];
+        // Console.WriteLine(p1.PolicyHolderName);
+
+        // // 6️⃣ Access using indexer (string)
+        // InsurancePolicy p2 = dir["Ravi"];
+        // Console.WriteLine(p2.Policy_Number);
+
+        // // 7️⃣ Polymorphism in action
+        // p1.CalculatePremium();  // calls LifeInsurance version
+        // p2.CalculatePremium();  // calls HealthInsurance version

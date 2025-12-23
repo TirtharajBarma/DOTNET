@@ -46,7 +46,7 @@ class Students
         // s.Marks = 150;
         // Console.WriteLine("Marks after invalid input: " + s.Marks);
 
-        // ❌ NOT allowed (uncomment to see compile error)
+        // NOT allowed (uncomment to see compile error)
         // s.AdmissionYear = 2004;
         // s.Reg_no = 999;
 
