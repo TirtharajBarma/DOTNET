@@ -4,6 +4,7 @@ using ItemAlias = LibrarySystem.Items;
 using LibrarySystem;
 using LibrarySystem.Users;
 using LibrarySystem.Items;
+using Trading;
 
 class Area
 {
@@ -57,78 +58,140 @@ class Area
         // Console.WriteLine(library["Data"]);     // Book Title not fo
 
         //! Day-5
-        ItemAlias.Book book = new ItemAlias.Book
-        {
-            Title = "C# Fundamentals",
-            Author = "John Doe",
-            ItemId = 101
-        };
+        // ItemAlias.Book book = new ItemAlias.Book
+        // {
+        //     Title = "C# Fundamentals",
+        //     Author = "John Doe",
+        //     ItemId = 101
+        // };
 
-        ItemAlias.Magazine magazine = new ItemAlias.Magazine
-        {
-            Title = "tech Today",
-            Author = "Jane Doe",
-            ItemId = 201
-        };
+        // ItemAlias.Magazine magazine = new ItemAlias.Magazine
+        // {
+        //     Title = "tech Today",
+        //     Author = "Jane Doe",
+        //     ItemId = 201
+        // };
 
-        Console.WriteLine();
-        book.Display();
-        Console.WriteLine($"fine: {book.Calculate(3)}");
+        // Console.WriteLine();
+        // book.Display();
+        // Console.WriteLine($"fine: {book.Calculate(3)}");
 
-        magazine.Display();
-        Console.WriteLine($"fine: {magazine.Calculate(3)}");
-        Console.WriteLine();
+        // magazine.Display();
+        // Console.WriteLine($"fine: {magazine.Calculate(3)}");
+        // Console.WriteLine();
 
-        IReservable r = book;
-        r.Reserving();
+        // IReservable r = book;
+        // r.Reserving();
 
-        INotifiable n = book;
-        n.Accepting("Book ready to pickup");
-        Console.WriteLine();
+        // INotifiable n = book;
+        // n.Accepting("Book ready to pickup");
+        // Console.WriteLine();
 
-        // polymorphism
-        List<ItemAlias.LibraryItem> items = [
-            book,
-            magazine
-        ];
+        // //* polymorphism
+        // List<ItemAlias.LibraryItem> items = [
+        //     book,
+        //     magazine
+        // ];
 
-        foreach(var it in items)    // "it" is of type Library item not Book or Magazine
-        {
-            it.Display();
-        }
-        Console.WriteLine();
+        // foreach(var it in items)    // "it" is of type Library item not Book or Magazine
+        // {
+        //     it.Display();
+        // }
+        // Console.WriteLine();
 
-        Console.WriteLine(
-            "Static members are used to share data across all objects."
-        );
-        LibraryAnalytics.totalBorrowedItem = 5;
-        LibraryAnalytics.Display();
-        Console.WriteLine();
+        // Console.WriteLine("Static members are used to share data across all objects.");
+        // LibraryAnalytics.totalBorrowedItem = 5;
+        // LibraryAnalytics.Display();
+        // Console.WriteLine();
 
-        ItemAlias.eBook e = new ItemAlias.eBook
-        {
-            Title = "Leaning c#",
-            Author = "jane",
-            ItemId = 102,
-        };
+        // eBook e = new eBook
+        // {
+        //     Title = "Leaning c#",
+        //     Author = "jane",
+        //     ItemId = 102,
+        // };
 
-        e.Display();
-        e.Download();
+        // e.Display();
+        // e.Download();
+        // Console.WriteLine();
         
-        // enum
-        LibrarySystem.Users.ItemStatus status = LibrarySystem.Users.ItemStatus.Borrowed;
-        LibrarySystem.Users.UserRole role = LibrarySystem.Users.UserRole.Librarian;
-        Console.WriteLine();
+        // //* enum
+        // ItemStatus status = ItemStatus.Borrowed;
+        // UserRole role = UserRole.Librarian;
 
-        LibrarySystem.Users.Member m = new LibrarySystem.Users.Member
+        // Member m = new Member
+        // {
+        //     Name = "Alex",
+        //     Role = role
+        // };
+
+        // Console.WriteLine(m.Name);
+        // Console.WriteLine($"User Role: {m.Role}");
+        // Console.WriteLine($"Item Status: {status}\n");
+
+        //! Day-6
+        // StockPrice sp1 = new StockPrice
+        // {
+        //     StockSymbol = "SBI",
+        //     Price = 450.80  
+        // };
+
+        // StockPrice copiedSp1 = sp1;     // create object copy [different memory]
+        // copiedSp1.Price = 230.90;
+
+        // Console.WriteLine($"original struct: {sp1.Price}");
+        // Console.WriteLine($"copied struct: {copiedSp1.Price}");
+        // Console.WriteLine();
+
+        // Trade t1 = new Trade
+        // {
+        //     TradeId = 123,
+        //     StockSymbol = "ICICI",
+        //     Quantity = 100
+        // };
+
+        // Trade copiedT1 = t1;        // by reference [same memory]
+        // copiedT1.Quantity = 200;
+
+        // Console.WriteLine($"original class: {t1.Quantity}");
+        // Console.WriteLine($"original struct: {copiedT1.Quantity}");
+
+        //! Task-6
+        PriceSnapshot Ps = new PriceSnapshot
         {
-            Name = "Alex",
-            Role = role
+            Symbol = "SBI",
+            Price = 120.90  
+        };
+        Console.WriteLine($"Stock Symbol: {Ps.Symbol}");
+        Console.WriteLine($"Stock Price: {Ps.Price}");
+
+        TradeRepository<EquityTrade> rep = new TradeRepository<EquityTrade>();
+
+        EquityTrade t1 = new EquityTrade
+        {
+            TradeId = 1,
+            StockSymbol = "AAPL",
+            Quantity = 100,
+            MarketPrice = 150.50 
+        };
+        EquityTrade t2 = new EquityTrade
+        {
+            TradeId = 2,
+            StockSymbol = "MSFT",
+            Quantity = 50,
+            MarketPrice = null
         };
 
-        Console.WriteLine(m.Name);
-        Console.WriteLine($"User Role: {m.Role}");
-        Console.WriteLine($"Item Status: {status}\n");
+        rep.Add(t1);
+        rep.Add(t2);
+
+        TradeProcess.Process(t1);
+        Console.WriteLine();
+        TradeProcess.Process(t2);
+        Console.WriteLine();
+
+        TradeAnalytics.DisplayAnalytics();
+
 
     }
 }

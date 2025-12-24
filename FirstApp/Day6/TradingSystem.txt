@@ -1,0 +1,331 @@
+ASSIGNMENT TITLE
+================
+Mini Project: SmartTrade – Real-Time Trading System Using Advanced C#
+
+
+COURSE CONTEXT
+==============
+Course          : Advanced C# Programming
+Module          : Generics, Nullable Types, Extension Methods, Pattern Matching
+Difficulty      : Intermediate → Advanced
+Assignment Type : Individual Mini Project
+
+
+PROBLEM STATEMENT
+=================
+A brokerage firm wants to build a lightweight, console-based trading system for internal testing and learning purposes.
+
+The system must:
+- Simulate equity trading
+- Handle market price fluctuations safely
+- Calculate trade value and brokerage
+- Maintain global trade analytics
+
+The solution must use advanced C# features with clean architecture, type safety, and good performance.
+
+
+OBJECTIVES
+==========
+After completing this assignment, the student should be able to:
+- Apply advanced C# language features in a real-world domain
+- Design extensible and maintainable systems
+- Demonstrate understanding of generics, nullable types, and extension methods
+- Implement clean object-oriented design
+
+
+SYSTEM REQUIREMENTS
+===================
+The system must:
+- Support equity trades
+- Handle missing market prices safely
+- Store trades generically
+- Track total trades at system level
+- Apply brokerage and tax calculations
+- Process trades dynamically
+
+
+TASKS TO BE PERFORMED (VERY SPECIFIC)
+====================================
+
+TASK 1: Market Price Snapshot Using Struct
+------------------------------------------
+Requirements:
+- Create ONE struct named `PriceSnapshot`
+- The struct MUST contain:
+  - Stock Symbol
+  - Stock Price
+- The struct MUST be used only for temporary market data
+
+Expected Implementation Proof:
+- Create at least one `PriceSnapshot` instance
+- Display symbol and price
+
+
+TASK 2: Base Trade Abstraction
+------------------------------
+Requirements:
+- Create ONE abstract class named `Trade`
+- The class MUST contain:
+  - Trade ID
+  - Stock Symbol
+  - Quantity
+- Declare ONE abstract method:
+  - Calculate trade value
+- Override `ToString()` from `System.Object`
+
+Expected Implementation Proof:
+- Display trade details using `ToString()`
+
+
+TASK 3: Equity Trade Implementation
+-----------------------------------
+Requirements:
+- Create ONE concrete class named `EquityTrade`
+- The class MUST:
+  - Inherit from `Trade`
+  - Add ONE nullable property: Market Price
+  - Implement trade value calculation using the null-coalescing operator
+
+Expected Implementation Proof:
+- Calculate trade value when:
+  - Market price is present
+  - Market price is missing (`null`)
+
+
+TASK 4: Generic Trade Repository
+--------------------------------
+Requirements:
+- Create ONE generic class named `TradeRepository<T>`
+- Apply a generic constraint so that ONLY `Trade` types are allowed
+- The repository MUST:
+  - Store multiple trades
+  - Add new trades
+  - Increment a global counter whenever a trade is added
+
+Expected Implementation Proof:
+- Add at least two trades
+- Display repository contents
+
+
+TASK 5: Static Trade Analytics
+------------------------------
+Requirements:
+- Create ONE static class named `TradeAnalytics`
+- The class MUST contain:
+  - A static variable to track total trades
+  - A static method to display analytics
+
+Expected Implementation Proof:
+- Display the total number of trades executed
+
+
+TASK 6: Extension Methods for Financial Calculations
+----------------------------------------------------
+Requirements:
+- Create ONE static class for extension methods
+- Add:
+  - Brokerage calculation method
+  - Tax (GST) calculation method
+- These methods MUST:
+  - Extend numeric types
+  - NOT modify the `Trade` class
+
+Expected Implementation Proof:
+- Apply brokerage and tax on trade value
+
+
+TASK 7: Pattern Matching for Trade Processing
+---------------------------------------------
+Requirements:
+- Create ONE trade processing method
+- Use pattern matching to:
+  - Identify `EquityTrade`
+  - Execute appropriate logic
+
+Expected Implementation Proof:
+- Display trade type during processing
+
+
+TASK 8: Boxing and Unboxing
+---------------------------
+Requirements:
+- Store total trade count in an `object` type
+- Retrieve it back into a value type
+
+Expected Implementation Proof:
+- Print boxed and unboxed values
+
+
+TASK 9: Main Program Flow
+-------------------------
+Requirements:
+- Create a repository instance
+- Create at least two `EquityTrade` objects
+- Assign:
+  - Trade ID
+  - Symbol
+  - Quantity
+  - Market Price
+- Add trades to the repository
+- Process trades
+- Display:
+  - Trade details
+  - Trade value
+  - Brokerage
+  - Tax
+- Display global analytics
+
+
+OUTPUT REQUIREMENTS (MANDATORY)
+===============================
+The output MUST include:
+- Trade processing message
+- Trade details
+- Calculated trade value
+- Brokerage charges
+- Tax amount
+- Total trades executed
+
+
+CONSTRAINTS
+===========
+- Do NOT use external libraries
+- Do NOT skip any task
+- Do NOT hardcode output values
+- Follow object-oriented principles strictly
+
+
+EVALUATION CRITERIA
+===================
+Correct use of advanced C# features : 40%
+Clean design & structure             : 25%
+Output correctness                   : 20%
+Code readability                     : 15%
+
+
+SUBMISSION REQUIREMENTS
+=======================
+- Complete source code
+- Console output screenshots
+- Brief explanation (1–2 lines) per task
+
+
+BONUS (OPTIONAL)
+================
+- Add a new trade type
+- Add risk validation logic
+
+
+EXPECTED OUTCOME (TASK-WISE)
+============================
+
+TASK 1: Market Price Snapshot Using Struct
+------------------------------------------
+Expected Output:
+- Stock Symbol: AAPL
+- Stock Price : 150.50
+
+Confirms:
+- Struct creation and instantiation
+- Value-type usage for temporary market data
+
+
+TASK 2: Base Trade Abstraction
+------------------------------
+Expected Output:
+- TradeId : 1
+- Symbol  : AAPL
+- Quantity: 100
+
+Confirms:
+- Abstract class usage
+- `ToString()` override works correctly
+
+
+TASK 3: Equity Trade Implementation
+-----------------------------------
+Case 1 (Market Price Available):
+- Trade Value: 15050
+
+Case 2 (Market Price Missing):
+- Trade Value: 0
+
+Confirms:
+- Nullable types handled safely
+- Null-coalescing operator prevents runtime errors
+
+
+TASK 4: Generic Trade Repository
+--------------------------------
+Expected Output:
+- Trade added successfully
+- Trade added successfully
+
+Confirms:
+- Generic storage works correctly
+- Type safety via constraints
+
+
+TASK 5: Static Trade Analytics
+------------------------------
+Expected Output:
+- Total Trades Executed: 2
+
+Confirms:
+- Static data persists across objects
+
+
+TASK 6: Extension Methods for Financial Calculations
+----------------------------------------------------
+Expected Output:
+- Trade Value: 15050
+- Brokerage : 15.05
+- GST       : 2.709
+
+Confirms:
+- Extension methods applied correctly
+- Financial logic separated from core classes
+
+
+TASK 7: Pattern Matching for Trade Processing
+---------------------------------------------
+Expected Output:
+- Processing Equity Trade
+
+Confirms:
+- Runtime type identification
+- Correct logic execution without casting
+
+
+TASK 8: Boxing and Unboxing
+---------------------------
+Expected Output:
+- Boxed Trade Count  : 2
+- Unboxed Trade Count: 2
+
+Confirms:
+- Correct boxing and unboxing behavior
+
+
+TASK 9: Complete Program Execution
+----------------------------------
+Expected Output Order:
+
+Processing Equity Trade
+Trade Value: 15050
+Brokerage : 15.05
+GST       : 2.709
+TradeId   : 1, Symbol: AAPL, Qty: 100
+
+Processing Equity Trade
+Trade Value: 0
+Brokerage : 0
+GST       : 0
+TradeId   : 2, Symbol: MSFT, Qty: 50
+
+Total Trades Executed: 2
+
+Confirms:
+- All components integrate correctly
+- Program flow matches real trading logic
+- No runtime exceptions occur

@@ -4,8 +4,8 @@ namespace LibrarySystem{
     {
         abstract class LibraryItem
         {
-            public String Title{get; set;}
-            public String Author{get; set;}
+            public String? Title{get; set;}
+            public String? Author{get; set;}
             public int ItemId{get; set;}
 
             public abstract void Display();
@@ -95,7 +95,7 @@ namespace LibrarySystem{
 
         class Member
         {
-            public string Name{get; set;}
+            public string? Name{get; set;}
             public UserRole Role{get; set;}
         }
     }
