@@ -11,7 +11,7 @@ sealed class Security
 abstract class InsurancePolicy
 {
     public int Policy_Number{get; init;}
-    public string PolicyHolderName{get; set;}
+    public string? PolicyHolderName{get; set;}
 
     private double _premium;
     public double Premium

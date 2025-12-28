@@ -114,7 +114,7 @@ class Area
         // e.Display();
         // e.Download();
         // Console.WriteLine();
-        
+
         // //* enum
         // ItemStatus status = ItemStatus.Borrowed;
         // UserRole role = UserRole.Librarian;
@@ -157,42 +157,186 @@ class Area
         // Console.WriteLine($"original struct: {copiedT1.Quantity}");
 
         //! Task-6
-        PriceSnapshot Ps = new PriceSnapshot
+        // PriceSnapshot Ps = new PriceSnapshot
+        // {
+        //     Symbol = "SBI",
+        //     Price = 120.90  
+        // };
+        // Console.WriteLine($"Stock Symbol: {Ps.Symbol}");
+        // Console.WriteLine($"Stock Price: {Ps.Price}");
+
+        // TradeRepository<EquityTrade> rep = new TradeRepository<EquityTrade>();
+
+        // EquityTrade t1 = new EquityTrade
+        // {
+        //     TradeId = 1,
+        //     StockSymbol = "AAPL",
+        //     Quantity = 100,
+        //     MarketPrice = 150.50 
+        // };
+        // EquityTrade t2 = new EquityTrade
+        // {
+        //     TradeId = 2,
+        //     StockSymbol = "MSFT",
+        //     Quantity = 50,
+        //     MarketPrice = null
+        // };
+
+        // rep.Add(t1);
+        // rep.Add(t2);
+
+        // TradeProcess.Process(t1);
+        // Console.WriteLine();
+        // TradeProcess.Process(t2);
+        // Console.WriteLine();
+
+        // TradeAnalytics.DisplayAnalytics();
+
+        //!Day-7
+        // Arrays.cal();
+        // Collections.cal();
+        // Frequency.cal();
+        // Merge.cal();
+        // string ans = FlipFlop.CleanseAndInvert("Aeroplane");
+        // Console.WriteLine(ans);
+
+        //! PayRollPro.cs
+        // PayRollService payroll = new PayRollService();
+
+        // while (true)
+        // {
+        //     int choice = int.Parse(Console.ReadLine());
+        //     switch (choice)
+        //     {
+        //         case 1:
+        //             int empType = int.Parse(Console.ReadLine());
+
+        //             string name = Console.ReadLine();
+        //             double hourlyRate = double.Parse(Console.ReadLine());
+        //             double[] weeklyHours = new double[4];
+
+        //             for(int i = 0; i < weeklyHours.Length; i++)
+        //             {
+        //                 weeklyHours[i] = double.Parse(Console.ReadLine());
+        //             }
+
+        //             if(empType == 1)
+        //             {
+        //                 double monthlyBonus = double.Parse(Console.ReadLine());
+        //                 FullTimeEmployee fte = new FullTimeEmployee
+        //                 {
+        //                     EmployeeName = name,
+        //                     HourlyRate = hourlyRate,
+        //                     WeeklyHours = weeklyHours,
+        //                     MonthlyBonus = monthlyBonus  
+        //                 };
+        //                 PayRollService.RegisterEmployee(fte);
+        //             } else
+        //             {
+        //                 ContractEmployee ce = new ContractEmployee
+        //                 {
+        //                     EmployeeName = name,
+        //                     HourlyRate = hourlyRate,
+        //                     WeeklyHours = weeklyHours  
+        //                 };
+        //                 PayRollService.RegisterEmployee(ce);
+        //             }
+        //             Console.WriteLine("Employee Created Successfully");
+        //             break; 
+
+        //         case 2:
+        //             double threshold = double.Parse(Console.ReadLine());
+
+        //             Dictionary<string, int> res = payroll.GetOvertimeWeekCounts(PayRollService.PayRollBoard, threshold);
+
+        //             if(res.Count == 0)
+        //                 Console.WriteLine("No overtime record this month");
+        //             else
+        //             {
+        //                 foreach(var it in res)
+        //                 {
+        //                     Console.WriteLine($"{it.Key} - {it.Value}");
+        //                 }
+        //             }
+        //             break;
+
+        //         case 3: 
+        //             double avg = payroll.CalculateAverageMonthlyPay();
+        //             Console.WriteLine(avg);
+        //             break;
+        //         case 4:
+        //             Console.WriteLine("braking off...");
+        //             return;
+
+        //         default:
+        //             Console.WriteLine("InValid Choice");
+        //             break;
+        //     }
+        // }
+
+        //! Day-8 : MediSure Clinic Billing
+
+        // while (true)
+        // {
+        //     Console.WriteLine("1. Create New Bill (Enter Patient Details)");
+        //     Console.WriteLine("2. View Last Bill");
+        //     Console.WriteLine("3. Clear Last Bill");
+        //     Console.WriteLine("4. Exit");
+        //     Console.Write("Enter your option: ");
+
+        //     if (!int.TryParse(Console.ReadLine(), out int choice))
+        //     {
+        //         Console.WriteLine("Invalid input. Please enter a number.");
+        //         continue;
+        //     }
+
+        //     switch (choice)
+        //     {
+        //         case 1:
+        //             BillingService.CreateBill();
+        //             break;
+        //         case 2:
+        //             BillingService.ViewLastBill();
+        //             break;
+        //         case 3:
+        //             BillingService.ClearLastBill();
+        //             break;
+        //         case 4:
+        //             Console.WriteLine("Thank you. Application closed normally.");
+        //             return;
+        //         default:
+        //             Console.WriteLine("Invalid menu option. Please try again.");
+        //             break;
+        //     }
+        // }
+
+        //! Quick-Mart
+        while (true)
         {
-            Symbol = "SBI",
-            Price = 120.90  
-        };
-        Console.WriteLine($"Stock Symbol: {Ps.Symbol}");
-        Console.WriteLine($"Stock Price: {Ps.Price}");
-
-        TradeRepository<EquityTrade> rep = new TradeRepository<EquityTrade>();
-
-        EquityTrade t1 = new EquityTrade
-        {
-            TradeId = 1,
-            StockSymbol = "AAPL",
-            Quantity = 100,
-            MarketPrice = 150.50 
-        };
-        EquityTrade t2 = new EquityTrade
-        {
-            TradeId = 2,
-            StockSymbol = "MSFT",
-            Quantity = 50,
-            MarketPrice = null
-        };
-
-        rep.Add(t1);
-        rep.Add(t2);
-
-        TradeProcess.Process(t1);
-        Console.WriteLine();
-        TradeProcess.Process(t2);
-        Console.WriteLine();
-
-        TradeAnalytics.DisplayAnalytics();
-
-
+            Console.Write("Enter your choice: ");
+            int choice = int.Parse(Console.ReadLine()!);
+            switch (choice)
+            {
+                case 1:
+                    Sale.NewTransaction();
+                    Console.WriteLine();
+                    break;
+                case 2:
+                    Sale.Display();
+                    Console.WriteLine();
+                    break;
+                case 3:
+                    Sale.ProfitStatus();
+                    Console.WriteLine();
+                    break;
+                case 4:
+                    Console.WriteLine("Exiting....");
+                    return;
+                default:
+                    Console.WriteLine("Invalid");
+                    return;
+            }
+        }
     }
 }
 
