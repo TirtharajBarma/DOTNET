@@ -36,7 +36,7 @@ class Patient
         this.MedicalHistory = str;
     }
 
-    public string retrieveMedicalHistory()
+    public string? retrieveMedicalHistory()
     {
         return MedicalHistory;
     }
@@ -44,8 +44,8 @@ class Patient
 
 class Doctor
 {
-    public string Name{get; set;}
-    public string Specialization{get; set;}
+    public string Name { get; set; } = string.Empty;
+    public string Specialization { get; set; } = string.Empty;
     public int LicenseNumber {get;}         // read-only
 
     static private int _totalDoctor;
@@ -83,7 +83,7 @@ class Appointment
 
 class MedicalRecord
 {
-    private string? diagnosis, history;
+    private string? diagnosis;
 
     public string getDiagnosis()
     {

@@ -76,7 +76,7 @@ class PolicyDirectory
         get => pol[index];
     }
 
-    public InsurancePolicy this[string name]
+    public InsurancePolicy? this[string name]
     {
         get => pol.FirstOrDefault(p => p.PolicyHolderName == name);
     }

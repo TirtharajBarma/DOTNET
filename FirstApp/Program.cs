@@ -5,6 +5,8 @@ using LibrarySystem;
 using LibrarySystem.Users;
 using LibrarySystem.Items;
 using Trading;
+using Microsoft.VisualBasic;
+using BankingSystem;
 
 class Area
 {
@@ -311,32 +313,150 @@ class Area
         // }
 
         //! Quick-Mart
-        while (true)
-        {
-            Console.Write("Enter your choice: ");
-            int choice = int.Parse(Console.ReadLine()!);
-            switch (choice)
-            {
-                case 1:
-                    Sale.NewTransaction();
-                    Console.WriteLine();
-                    break;
-                case 2:
-                    Sale.Display();
-                    Console.WriteLine();
-                    break;
-                case 3:
-                    Sale.ProfitStatus();
-                    Console.WriteLine();
-                    break;
-                case 4:
-                    Console.WriteLine("Exiting....");
-                    return;
-                default:
-                    Console.WriteLine("Invalid");
-                    return;
-            }
-        }
+        // while (true)
+        // {
+        //     Console.Write("Enter your choice: ");
+        //     int choice = int.Parse(Console.ReadLine()!);
+        //     switch (choice)
+        //     {
+        //         case 1:
+        //             Sale.NewTransaction();
+        //             Console.WriteLine();
+        //             break;
+        //         case 2:
+        //             Sale.Display();
+        //             Console.WriteLine();
+        //             break;
+        //         case 3:
+        //             Sale.ProfitStatus();
+        //             Console.WriteLine();
+        //             break;
+        //         case 4:
+        //             Console.WriteLine("Exiting....");
+        //             return;
+        //         default:
+        //             Console.WriteLine("Invalid");
+        //             return;
+        //     }
+        // }
+
+        //! Day-9 [Exception]
+        // try
+        // {
+        //     Console.Write("Enter withdraw amt: ");
+        //     decimal amt = Decimal.Parse(Console.ReadLine()!);
+
+        //     int serviceCharge = 100;
+        //     // int divisionCheck = serviceCharge / int.Parse("0");
+
+        //     string data = File.ReadAllText("Day9/data.txt");
+        //     BankAccount ba = new BankAccount();
+        //     ba.WithDraw(amt);
+        //     Console.WriteLine("Withdraw successful");
+        // }
+        // catch (FormatException ex)
+        // {   
+        //     LogException(ex);
+        //     Console.WriteLine("Format not supported");
+        // }
+        // catch(DivideByZeroException ex)
+        // {
+        //     LogException(ex);
+        //     Console.WriteLine("Arithmetic error occurred");
+        // }
+        // catch(FileNotFoundException ex)
+        // {
+        //     LogException(ex);
+        //     Console.WriteLine("Required file not found");
+        // }
+        // catch(Exception ex)
+        // {
+        //     LogException(ex);
+        //     Console.WriteLine("An unexpected error occurred" + ex.Message);
+        // }
+        // finally
+        // {
+        //     Console.WriteLine("Transaction attempt completed");
+        // }
+
+        // static void LogException(Exception ex)
+        // {
+        //     File.AppendAllText(
+        //         "error.log",
+        //         DateTime.Now + " | " + ex.GetType().Name + " | " + ex.Message + Environment.NewLine
+        //     );
+        // }
+
+        //* Another code
+        // FileStream file = null;
+        // try
+        // {
+        //     file = new FileStream("Day9/data.txt", FileMode.Open);
+        //     // Perform file operations
+        //     int data = file.ReadByte();      //* read only 1 char not all
+        //     Console.WriteLine((char)data);
+        // }
+        // catch (FileNotFoundException ex)
+        // {
+        //     Console.WriteLine("File not found: " + ex.Message);
+        // }
+        // finally
+        // {
+        //     if (file != null)
+        //     {
+        //         file.Close(); // Ensures file is always closed
+        //         Console.WriteLine("File stream closed in finally block.");
+        //     }
+        // }
+
+        //* Another code
+        // try
+        // {
+        //     try
+        //     {
+        //         File.ReadAllText("transactions.txt");
+        //     }
+        //     catch (IOException ioEx)
+        //     {
+        //         throw new ApplicationException(
+        //             "Unable to load transaction data",
+        //             ioEx
+        //         );
+        //     }
+        // }
+        // catch (Exception ex)
+        // {
+        //     Console.WriteLine("Message: " + ex.Message);
+        //     Console.WriteLine("Root Cause: " + ex.InnerException.Message);
+        // }
+
+        //* Another code
+        // ExceptionHandling.BankAccount ba = new ExceptionHandling.BankAccount(5000);
+        // ba.Withdraw(6000);
+
+        //! Day-9
+        // try
+        //     {
+        //         BankingSystem.BankAccount account = new BankingSystem.BankAccount("ACC1001", -90);
+
+        //         account.WithDraw(-90);
+        //     }
+        //     catch (InsufficientBalanceException ex)
+        //     {
+        //         Console.WriteLine("Business Error: " + ex.Message);
+        //     }
+        //     catch (BankOperationException ex)
+        //     {
+        //         Console.WriteLine("System Error: " + ex.Message);
+        //         Console.WriteLine("Root Cause: " + ex.InnerException?.Message);
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         Console.WriteLine("Unknown Error: " + ex.Message);
+        //     }
+
+        //! Day-10 [Regex]
+        RegexDemo.cal();
     }
 }
 

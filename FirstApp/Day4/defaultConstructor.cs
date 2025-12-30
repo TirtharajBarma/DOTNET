@@ -1,6 +1,6 @@
 class Product
 {
-    public string Name;
+    public string Name = string.Empty;
     public int Price;
 
     public Product()

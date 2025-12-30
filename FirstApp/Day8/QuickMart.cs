@@ -70,7 +70,7 @@ static class Sale
 
     public static void Display()
     {
-        if (HasLastTransaction)
+        if (HasLastTransaction && LastTransaction != null)
         {
             Console.WriteLine("Last Transaction");
             Console.WriteLine($"InvoiceNo: {LastTransaction.InvoiceNo}");

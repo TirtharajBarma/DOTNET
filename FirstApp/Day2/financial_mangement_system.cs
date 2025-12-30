@@ -42,9 +42,8 @@ class Debit
         for (int i = 1; i <= n; i++)
         {
             Console.Write($"Enter amount for transaction {i}: ");
-            string input = Console.ReadLine();
-            
-            if (!double.TryParse(input, out double amt))
+            string? input = Console.ReadLine();
+            if (!double.TryParse(input ?? "0", out double amt))
             {
                 Console.WriteLine("Invalid number skipped.");
                 continue;
@@ -86,7 +85,7 @@ class Debit
             {
                 case 1: 
                     ATMWithdrawal();
-                     Console.WriteLine(); 
+                    Console.WriteLine(); 
                     break;
                 case 2: 
                     EMICheck();
@@ -94,7 +93,7 @@ class Debit
                     break;
                 case 3: 
                     DailyTransactions();
-                     Console.WriteLine(); 
+                    Console.WriteLine(); 
                     break;
                 case 4: 
                     MinBalanceCheck();

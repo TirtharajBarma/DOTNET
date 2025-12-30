@@ -1,5 +1,5 @@
 class Task
 {
-    public int TradeId;
-    public string? StockSymbol;
+    public int TradeId = 0;
+    public string? StockSymbol = null;
 }

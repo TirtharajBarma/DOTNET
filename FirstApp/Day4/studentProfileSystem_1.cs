@@ -2,7 +2,7 @@ using System;
 
 class Student
 {
-    private string _name;
+    private string _name = string.Empty;
     private int _age;
     private double _marks;
 

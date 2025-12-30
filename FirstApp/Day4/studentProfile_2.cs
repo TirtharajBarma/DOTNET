@@ -5,7 +5,7 @@ class Student1
     public int StudentId{get; set;}
 
     private string? _name;
-    public string Name
+    public string? Name
     {
         get => _name;
         set

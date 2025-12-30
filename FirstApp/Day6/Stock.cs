@@ -6,8 +6,8 @@ struct StockPrice
 
 class Trade
 {
-    public int TradeId;
-    public string? StockSymbol;
-    public double Quantity;
+    public int TradeId = 0;
+    public string? StockSymbol = null;
+    public double Quantity = 0;
 }
 
