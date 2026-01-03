@@ -24,6 +24,15 @@ class Area
         // Loan.cal();
         // Financial.Run();
 
+        //! Day-3
+        // Cardiologist c = new Cardiologist(7777);
+
+        // c.Name = "Dr. Arjun";
+        // c.Specialization = "Heart Specialist";
+
+        // Console.WriteLine(Doctor.TotalDoctor);
+        // c.Display();
+
 
         //! DAY-4
         //* Deposit d = new(5, 6.5, 10000);
@@ -458,35 +467,35 @@ class Area
 
         //! Day-10 [Regex]
         // RegexDemo.cal();
-        Console.WriteLine();
-        Console.WriteLine("REGEX: ");
-        LogParser parser = new LogParser();
-        string log = "[INF] User logged in";
-        Console.WriteLine("Task1: " + LogParser.IsValid(log));
-        Console.WriteLine();
+        // Console.WriteLine();
+        // Console.WriteLine("REGEX: ");
+        // LogParser parser = new LogParser();
+        // string log = "[INF] User logged in";
+        // Console.WriteLine("Task1: " + LogParser.IsValid(log));
+        // Console.WriteLine();
 
-        string log2 = "[INF] User login<*>Session created<====>Access granted";
-        string[] arr = LogParser.SplitLogLine(log2);
-        Console.WriteLine("Task2: ");
-        foreach(var it in arr)
-            Console.WriteLine(it);
-        Console.WriteLine();
+        // string log2 = "[INF] User login<*>Session created<====>Access granted";
+        // string[] arr = LogParser.SplitLogLine(log2);
+        // Console.WriteLine("Task2: ");
+        // foreach(var it in arr)
+        //     Console.WriteLine(it);
+        // Console.WriteLine();
 
-        string log3 = "password123 is weak";
-        int ctn = LogParser.CountQuotedPasswords(log3);
-        Console.WriteLine("Task3: " + ctn);
-        Console.WriteLine();
+        // string log3 = "password123 is weak";
+        // int ctn = LogParser.CountQuotedPasswords(log3);
+        // Console.WriteLine("Task3: " + ctn);
+        // Console.WriteLine();
 
-        string log4 = "Transaction completed successfully end-of-line456";
-        string str = LogParser.RemoveEndOfLineText(log4);
-        Console.WriteLine("Task4: " + str);
-        Console.WriteLine();
+        // string log4 = "Transaction completed successfully end-of-line456";
+        // string str = LogParser.RemoveEndOfLineText(log4);
+        // Console.WriteLine("Task4: " + str);
+        // Console.WriteLine();
 
-        string[] vec = {"User entered password123 during login", "System startup completed"};
-        string[] res = parser.ListLinesWithPasswords(vec);
-        Console.WriteLine("Task5: " + str);
-        foreach(var it in res)
-            Console.WriteLine(it);
+        // string[] vec = {"User entered password123 during login", "System startup completed"};
+        // string[] res = parser.ListLinesWithPasswords(vec);
+        // Console.WriteLine("Task5: " + str);
+        // foreach(var it in res)
+        //     Console.WriteLine(it);
     }
 }
 

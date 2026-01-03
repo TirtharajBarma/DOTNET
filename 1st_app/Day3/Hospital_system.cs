@@ -64,6 +64,19 @@ class Doctor
     }
 }
 
+class Cardiologist : Doctor
+{
+    public Cardiologist(int licenseNumber) : base(licenseNumber)
+    {
+    
+    }
+
+    public void Display()
+    {
+        Console.WriteLine(TotalDoctor);
+    }
+}
+
 class Appointment
 {
     public void ScheduleAppointment(string str)
