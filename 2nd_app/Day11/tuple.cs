@@ -8,7 +8,7 @@ class Tuple
         // Console.WriteLine(student2.GetType());
 
         //! Tuple usage
-        // static (int Sum, int Average, int Difference) Calculate(int a, int b)
+        // static (int Sum, int Average, int Difference) Calculate(int a, int b)        //* method inside method -> that's why static [local function]
         // {
         //     return (a + b, (a + b) / 2, a - b);
         // }
@@ -47,7 +47,7 @@ class Tuple
         // Console.WriteLine(response.IsValid);
 
         //* Different
-        var person = (Id: 1, Name: "Neha");     // creating a tuple
+        var person = (Id: 1, Name: "Neha");     // creating a named tuple
         Console.WriteLine(person.Id);
 
         var(id, name) = person;                 // deconstruction

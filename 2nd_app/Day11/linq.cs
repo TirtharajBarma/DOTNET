@@ -1,5 +1,6 @@
 class Linq
 {
+    //* LINQ runs only when you try to read the query
     public static void cal()
     {
         // int[] arr = {1, 2, 3, 4, 5, 6, 7};
@@ -19,16 +20,16 @@ class Linq
         //* different-code
         List<Student> students = new List<Student>()
         {
-            new Student{Name = "amit", Marks = 75},  
-            new Student{Name = "hello", Marks = 25},  
-            new Student{Name = "zero", Marks = 95},  
+            new Student { Name = "Amit", Marks = 75 },
+            new Student { Name = "Hello", Marks = 25 },
+            new Student { Name = "Zero", Marks = 95 }
         };
 
-        var res = students.Select(s => new
+        var res = students.Select(s => new      //* new -> creates a new object - this is different from Student class
         {
             s.Name,
             Grade = s.Marks > 60 ? "Pass" : "Fail"
-        }).ToList();
+        }).ToList();                                    //* RUN it now and stored it inside res : cauz else it runs on foreach
         
         Console.WriteLine(res.GetType());
         Console.WriteLine("Normal: ");

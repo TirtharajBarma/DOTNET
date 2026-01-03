@@ -17,6 +17,9 @@ class Program
         //* anomalous type
         // Tuple.cal();
         // Linq.cal();
-        GarbageCollection.cal();
+        // GarbageCollection.cal();
+
+        //! Day-12
+        StringBuilder1.cal();
     }
 }
