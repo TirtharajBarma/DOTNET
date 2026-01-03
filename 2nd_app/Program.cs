@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-class Program
+class Program1
 {
     public static void Main()
     {
