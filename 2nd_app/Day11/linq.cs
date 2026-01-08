@@ -1,3 +1,9 @@
+class Student
+{
+    public required string Name{get; set;}
+    public string? Grade{get; set;}
+    public int Marks{get; set;}
+}
 class Linq
 {
     //* LINQ runs only when you try to read the query
@@ -29,7 +35,7 @@ class Linq
         {
             s.Name,
             Grade = s.Marks > 60 ? "Pass" : "Fail"
-        }).ToList();                                    //* RUN it now and stored it inside res : cauz else it runs on foreach
+        }).ToList();                           //* ToList -> RUN it now and stored it inside res : cauz else it runs on foreach
         
         Console.WriteLine(res.GetType());
         Console.WriteLine("Normal: ");
@@ -53,10 +59,4 @@ class Linq
     }
 }
 
-class Student
-{
-    public required string Name{get; set;}
-    public string? Grade{get; set;}
-    public int Marks{get; set;}
-}
 

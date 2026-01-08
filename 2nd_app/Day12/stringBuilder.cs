@@ -33,13 +33,13 @@ class StringBuilder1
         StringBuilder sb1 = new StringBuilder("Hello");
         StringBuilder sb2 = new StringBuilder("Hello");
         
-        Console.WriteLine("sb1.Equals(sb2): " + sb1.Equals(sb2));
-        Console.WriteLine("object.ReferenceEquals(sb1, sb2): " + object.ReferenceEquals(sb1, sb2));
+        Console.WriteLine("sb1.Equals(sb2): " + sb1.Equals(sb2));       // true
+        Console.WriteLine("object.ReferenceEquals(sb1, sb2): " + object.ReferenceEquals(sb1, sb2));     // false
 
         StringBuilder sb3 = sb2;    //* No new obj created
-        Console.WriteLine("sb3.Equals(sb2): " + sb3.Equals(sb2));
-        Console.WriteLine("object.ReferenceEquals(sb3, sb2): " + object.ReferenceEquals(sb3, sb2));
-        Console.WriteLine($"sb1 == sb2: {sb1 == sb2}");     //* for sb it behaves like ReferenceEquals
+        Console.WriteLine("sb3.Equals(sb2): " + sb3.Equals(sb2));   // true
+        Console.WriteLine("object.ReferenceEquals(sb3, sb2): " + object.ReferenceEquals(sb3, sb2));     // true
+        Console.WriteLine($"sb1 == sb2: {sb1 == sb2}");  // false    //* for sb it behaves like ReferenceEquals 
 
         string str1 = "hello";
         string str2 = "hello";

@@ -1,0 +1,281 @@
+ONE-HOUR ASSESSMENT  
+Ecommerce Order Processing System (C#)
+
+==================================================
+OVERVIEW
+==================================================
+Design and implement an Ecommerce Order Processing System using C#.  
+The goal of this assessment is to evaluate your understanding of:
+
+- Generics
+- Delegates
+- Events
+- Collections
+- Loose coupling and extensibility
+
+All components must work together in a clean and modular way.
+
+--------------------------------------------------
+NAMESPACE REQUIREMENT
+--------------------------------------------------
+Namespace Name: EcommerceAssessment
+
+All classes must be created inside this namespace.
+
+
+==================================================
+TASK 1: GENERIC REPOSITORY
+==================================================
+Objective  
+Create a reusable repository that can store and retrieve objects of any type.
+
+Class Name  
+Repository<T>
+
+Data Member  
+- items  
+  - Type: List<T>  
+  - Access: private  
+  - Description: Stores objects of the generic type
+
+Methods  
+
+1. Add  
+   - Access: public  
+   - Return Type: void  
+   - Parameter: T item  
+   - Responsibility: Adds the given object to the repository.
+
+2. GetAll  
+   - Access: public  
+   - Return Type: List<T>  
+   - Parameters: None  
+   - Responsibility: Returns all stored objects in insertion order.
+
+Expected Outcome  
+- The repository must store multiple objects.  
+- Objects must be returned in the same order they were added.
+
+
+==================================================
+TASK 2: ORDER DOMAIN MODEL
+==================================================
+Objective  
+Represent a customer order in the ecommerce system.
+
+Class Name  
+Order
+
+Properties  
+
+- OrderId  
+  - Type: int  
+  - Access: public  
+  - Description: Unique order identifier
+
+- CustomerName  
+  - Type: string  
+  - Access: public  
+  - Description: Name of the customer
+
+- Amount  
+  - Type: double  
+  - Access: public  
+  - Description: Order amount
+
+Method  
+
+ToString  
+- Access: public  
+- Return Type: string  
+- Responsibility: Returns a readable string containing OrderId, CustomerName, and Amount.
+
+Expected Outcome  
+Order details must be displayed in a clean and readable format.
+
+
+==================================================
+TASK 3: CUSTOM CALLBACK DELEGATE
+==================================================
+Objective  
+Create a delegate to notify order processing status.
+
+Delegate Name  
+OrderCallback
+
+Delegate Signature  
+- Accepts: string message  
+- Returns: void
+
+Expected Outcome  
+Any method matching this signature must be able to receive and display order-related messages.
+
+
+==================================================
+TASK 4: ORDER PROCESSOR
+==================================================
+Objective  
+Process orders using validation, tax calculation, discount calculation, callbacks, and events.
+
+Class Name  
+OrderProcessor
+
+Event  
+
+- Event Name: OrderProcessed  
+- Type: Action<string>  
+- Responsibility: Notifies subscribers when an order is successfully processed.
+
+--------------------------------------------------
+ProcessOrder Method
+--------------------------------------------------
+Access: public  
+Return Type: void  
+
+Parameters  
+
+- order (Order)  
+  → Order to be processed
+
+- taxCalculator (Func<double, double>)  
+  → Calculates tax based on order amount
+
+- discountCalculator (Func<double, double>)  
+  → Calculates discount based on order amount
+
+- validator (Predicate<Order>)  
+  → Validates the order
+
+- callback (OrderCallback)  
+  → Sends order status messages
+
+--------------------------------------------------
+Method Responsibilities
+--------------------------------------------------
+1. Validate the order using the validator.
+2. If validation fails:
+   - Notify using the callback.
+   - Stop further processing.
+3. If validation succeeds:
+   - Calculate tax.
+   - Calculate discount.
+   - Update the order amount.
+4. Notify successful processing using the callback.
+5. Raise the OrderProcessed event.
+
+Expected Outcome  
+- Invalid orders must not be processed.  
+- Valid orders must have updated amounts.  
+- Callbacks and events must trigger correctly.
+
+
+==================================================
+TASK 5: EXECUTION & SORTING (Main Method)
+==================================================
+Objective  
+Demonstrate the complete workflow of the system.
+
+Task Description  
+Use the repository, delegates, events, and processor together to process multiple orders and display results.
+
+--------------------------------------------------
+Steps to Perform
+--------------------------------------------------
+1. Create a repository to store Order objects.
+2. Add three orders:
+   - Alice → medium amount
+   - Bob → lower amount
+   - Charlie → higher amount
+3. Define tax calculation logic using Func<double, double>.
+4. Define discount calculation logic using Func<double, double>.
+5. Define order validation logic using Predicate<Order>.
+6. Create a callback using OrderCallback to display messages.
+7. Create two notification handlers:
+   - Logger (Action<string>)
+   - Notifier (Action<string>)
+8. Combine Logger and Notifier into a multicast delegate.
+9. Subscribe the multicast delegate to the OrderProcessed event.
+10. Process each order from the repository.
+11. Sort processed orders in descending order using Comparison<Order>.
+12. Display the sorted list.
+
+--------------------------------------------------
+Validation Rules
+--------------------------------------------------
+- Orders below the minimum amount must not be processed.
+- Tax and discount apply only to valid orders.
+- Callback messages must appear for both success and failure.
+- All event subscribers must execute on success.
+
+--------------------------------------------------
+Expected Output (Illustrative)
+--------------------------------------------------
+Callback: Order 1 processed successfully.  
+Logger: Event: Order 1 completed.  
+Notifier: Event: Order 1 completed.
+
+Callback: Order 2 validation failed.
+
+Sorted Orders (Descending Amount):  
+OrderId: 3, Customer: Charlie, Amount: XXXX  
+OrderId: 1, Customer: Alice, Amount: XXXX  
+OrderId: 2, Customer: Bob, Amount: XXXX  
+
+
+==================================================
+TEST CASES
+==================================================
+
+TASK 1: Repository  
+Input:  
+Laptop  
+Tablet  
+
+Output:  
+Laptop  
+Tablet  
+
+--------------------------------------------------
+
+TASK 2: Order ToString  
+Input:  
+OrderId = 101  
+Customer = Alice  
+Amount = 5000  
+
+Output:  
+OrderId: 101, Customer: Alice, Amount: 5000  
+
+--------------------------------------------------
+
+TASK 3: Callback Delegate  
+Input:  
+"Order validation failed."
+
+Output:  
+Callback: Order validation failed.
+
+--------------------------------------------------
+
+TASK 4: Order Processing  
+Valid Order Output:  
+Callback: Order 101 processed successfully.  
+Event: Order 101 completed.
+
+Invalid Order Output:  
+Callback: Order validation failed.
+
+--------------------------------------------------
+
+TASK 5: Multicast Event  
+Output:  
+Logger: Event: Order 101 completed.  
+Notifier: Event: Order 101 completed.
+
+--------------------------------------------------
+
+TASK 6: Sorting  
+Output (Descending):  
+OrderId: 3, Customer: Charlie, Amount: 9440  
+OrderId: 1, Customer: Alice, Amount: 5900  
+OrderId: 2, Customer: Bob, Amount: 2360  

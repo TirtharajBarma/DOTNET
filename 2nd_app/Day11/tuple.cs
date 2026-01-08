@@ -4,8 +4,8 @@ class Tuple
     {
         // (int, string) student1 = (101, "Amit");
         // var student2 = (Id: 101, Name: "Amit");
-        // Console.WriteLine(student1.GetType());
-        // Console.WriteLine(student2.GetType());
+        // Console.WriteLine(student1.GetType()); //* System.ValueTuple`2[System.Int32,System.String]
+        // Console.WriteLine(student2.GetType()); //* System.ValueTuple`2[System.Int32,System.String]
 
         //! Tuple usage
         // static (int Sum, int Average, int Difference) Calculate(int a, int b)        //* method inside method -> that's why static [local function]
