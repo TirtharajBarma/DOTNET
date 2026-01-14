@@ -1,0 +1,224 @@
+DIALING CODE – COLLECTIONS (C#)
+
+==================================================
+PROBLEM STATEMENT
+==================================================
+You are required to design a C# utility class that manages international telephone dialing codes using a dictionary-based approach.
+
+The system must support:
+- Adding country dialing codes
+- Updating existing codes
+- Retrieving country names
+- Validating country codes
+- Performing simple analysis on stored data
+
+All tasks must be implemented step-by-step using:
+- Dictionary
+- Methods
+- Correct return values
+
+
+==================================================
+OVERALL DESIGN SPECIFICATION
+==================================================
+Namespace Name  : DialingCodesApp
+Class Name      : DialingCodes
+Class Type      : public static class
+Data Structure : Dictionary<int, string>
+
+Rules:
+- No instance variables allowed
+- All methods must be public and static
+
+
+==================================================
+TASK 1: CREATE AN EMPTY DICTIONARY
+==================================================
+Method Name     : GetEmptyDictionary
+Return Type     : Dictionary<int, string>
+Parameters      : None
+
+Purpose:
+Creates and returns an empty dictionary that will store
+- Key   → Country Dialing Code (int)
+- Value → Country Name (string)
+
+Expected Output:
+{ }  (empty dictionary)
+
+
+==================================================
+TASK 2: CREATE A DICTIONARY WITH PREDEFINED VALUES
+==================================================
+Method Name     : GetExistingDictionary
+Return Type     : Dictionary<int, string>
+Parameters      : None
+
+Purpose:
+Returns a dictionary pre-filled with the following values:
+
+1  → United States of America  
+55 → Brazil  
+91 → India
+
+
+==================================================
+TASK 3: ADD A COUNTRY TO AN EMPTY DICTIONARY
+==================================================
+Method Name     : AddCountryToEmptyDictionary
+Return Type     : Dictionary<int, string>
+Parameters:
+- int countryCode
+- string countryName
+
+Purpose:
+Creates a new dictionary and adds exactly one country entry.
+
+Expected Result:
+Dictionary contains only one key–value pair.
+
+
+==================================================
+TASK 4: ADD A COUNTRY TO AN EXISTING DICTIONARY
+==================================================
+Method Name     : AddCountryToExistingDictionary
+Return Type     : Dictionary<int, string>
+Parameters:
+- Dictionary<int, string> existingDictionary
+- int countryCode
+- string countryName
+
+Purpose:
+Adds a new country or updates an existing one.
+
+Example:
+Input:
+{91 : "India"}, 44, "United Kingdom"
+
+Output:
+{91 : "India", 44 : "United Kingdom"}
+
+
+==================================================
+TASK 5: RETRIEVE COUNTRY NAME USING CODE
+==================================================
+Method Name     : GetCountryNameFromDictionary
+Return Type     : string
+Parameters:
+- Dictionary<int, string> existingDictionary
+- int countryCode
+
+Purpose:
+Returns the country name for the given code.
+If the code does not exist, return an empty string.
+
+Example:
+Input : {91 : "India"}, 91
+Output: "India"
+
+Input : {91 : "India"}, 99
+Output: ""
+
+
+==================================================
+TASK 6: CHECK IF A COUNTRY CODE EXISTS
+==================================================
+Method Name     : CheckCodeExists
+Return Type     : bool
+Parameters:
+- Dictionary<int, string> existingDictionary
+- int countryCode
+
+Purpose:
+Checks whether the given dialing code exists.
+
+Example:
+Input : {1 : "USA"}, 1
+Output: true
+
+Input : {1 : "USA"}, 44
+Output: false
+
+
+==================================================
+TASK 7: UPDATE AN EXISTING COUNTRY NAME
+==================================================
+Method Name     : UpdateDictionary
+Return Type     : Dictionary<int, string>
+Parameters:
+- Dictionary<int, string> existingDictionary
+- int countryCode
+- string countryName
+
+Purpose:
+Updates the country name only if the code already exists.
+If the code does not exist, do nothing.
+
+Example:
+Input : {91 : "India"}, 91, "Republic of India"
+Output: {91 : "Republic of India"}
+
+
+==================================================
+TASK 8: REMOVE A COUNTRY FROM DICTIONARY
+==================================================
+Method Name     : RemoveCountryFromDictionary
+Return Type     : Dictionary<int, string>
+Parameters:
+- Dictionary<int, string> existingDictionary
+- int countryCode
+
+Purpose:
+Removes a country only if the code exists.
+
+Example:
+Input : {1 : "USA", 91 : "India"}, 1
+Output: {91 : "India"}
+
+
+==================================================
+TASK 9: FIND THE LONGEST COUNTRY NAME
+==================================================
+Method Name     : FindLongestCountryName
+Return Type     : string
+Parameters:
+- Dictionary<int, string> existingDictionary
+
+Purpose:
+Returns the country name with the maximum number of characters.
+If the dictionary is empty, return an empty string.
+
+
+==================================================
+TASK 10: PRINT DICTIONARY CONTENTS
+==================================================
+Method Name     : PrintDictionary
+Return Type     : void
+Parameters:
+- Dictionary<int, string> dictionary
+
+Purpose:
+Displays all dialing codes and country names.
+
+Output Format (MANDATORY):
+Code: <dialing_code>, Country: <country_name>
+
+Rules:
+- Do not modify the dictionary
+- If dictionary is empty, print nothing
+- Print one entry per line
+
+
+==================================================
+MANDATORY EXECUTION ORDER IN MAIN METHOD
+==================================================
+1. Create emptyDict using GetEmptyDictionary
+2. Create existingDict using GetExistingDictionary
+3. Create singleEntryDict using AddCountryToEmptyDictionary(81, "Japan")
+4. Add "United Kingdom" using AddCountryToExistingDictionary
+5. Retrieve country using code 91
+6. Check existence of code 55
+7. Update Brazil using code 55
+8. Remove USA using code 1
+9. Find longest country name and store in longestName
+10. Print dictionary using PrintDictionary
