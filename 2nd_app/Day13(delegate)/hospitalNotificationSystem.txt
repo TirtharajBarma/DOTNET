@@ -1,0 +1,258 @@
+DELEGATES AND EVENTS – HOSPITAL COMMUNICATION & NOTIFICATION SYSTEM
+===============================================================
+
+PROBLEM STATEMENT
+-----------------
+A hospital wants to build a console-based communication system that demonstrates
+all types of delegates in C#, including:
+
+• Custom Delegates
+• Single-cast Delegates
+• Multicast Delegates
+• Event-based Delegates
+• Generic Delegates (Func, Action, Predicate)
+
+IMPORTANT:
+The system must use the EXACT delegate names, event names, method names,
+and variable names mentioned below.
+Any deviation is treated as incorrect.
+
+
+GLOBAL NAMING CONSTRAINTS (MANDATORY)
+------------------------------------
+• Delegate names must match exactly
+• Event names must match exactly
+• Variable names used in Main must match exactly
+• Method names used for delegate assignment must match exactly
+• No extra delegates, events, or variables are allowed
+
+
+===============================================================
+TASK 1: Custom Delegate – Single-Cast Discharge Report
+===============================================================
+
+OBJECTIVE
+---------
+Generate a discharge summary using a single-cast custom delegate.
+
+MANDATORY INSTRUCTIONS
+----------------------
+1. Define a delegate named ReportGenerator
+   • Returns: string
+   • Accepts: exactly one parameter named patientName
+
+2. Create a method named GenerateDischargeSummary
+   • Accepts: patientName
+   • Returns: a discharge summary string
+
+3. In the Main method:
+   • Declare a variable named report of type ReportGenerator
+   • Assign GenerateDischargeSummary to report
+   • Invoke report using the value "Rahul"
+   • Store the returned value in a variable named summary
+   • Display the value of summary
+
+
+===============================================================
+TASK 2: Multicast Delegate – Emergency Alert Broadcasting
+===============================================================
+
+OBJECTIVE
+---------
+Broadcast an emergency alert using a multicast delegate.
+
+MANDATORY INSTRUCTIONS
+----------------------
+1. Define a delegate named HospitalAlert
+   • Returns: void
+   • Accepts: exactly one parameter named message
+
+2. Create the following methods in Main (names must match exactly):
+   • SendSmsAlert
+   • SendEmailAlert
+   • SendDashboardAlert
+
+   Each method must:
+   • Accept a parameter named message
+   • Display the alert with a unique label
+
+3. In the Main method:
+   • Declare a variable named alert of type HospitalAlert
+   • Assign SendSmsAlert to alert
+   • Attach SendEmailAlert to alert
+   • Attach SendDashboardAlert to alert
+   • Invoke alert with:
+     "Emergency patient detected!"
+
+
+===============================================================
+TASK 3: Event-Based Delegate – Patient Admission Notification
+===============================================================
+
+TASK 3.1: Event Delegate Definition
+-----------------------------------
+Define a delegate named HospitalNotificationHandler
+
+• Returns: void
+• Accepts exactly two parameters:
+  - string message
+  - DateTime time
+
+
+TASK 3.2: Event Publisher – HospitalNotifier
+---------------------------------------------
+Create a class named HospitalNotifier
+
+Inside this class:
+• Declare an event named PatientAdmitted
+• Create a method named AdmitPatient
+  - Accepts one parameter named name
+  - Raises the PatientAdmitted event
+  - Passes:
+    • Message: "{Patient_name} admitted successfully."
+    • Time: current system time
+
+
+TASK 3.3: Event Subscriber – AdministrationDepartment
+-----------------------------------------------------
+Create a class named AdministrationDepartment
+
+Inside this class:
+• Create a method named Notify
+• Method requirements:
+  - Accept parameters message and time
+  - Match HospitalNotificationHandler signature
+  - Display the received message and time
+
+
+TASK 3.4: Event Subscription and Execution
+------------------------------------------
+In the Main method:
+• Declare notifier of type HospitalNotifier
+• Declare admin of type AdministrationDepartment
+• Subscribe:
+  - admin.Notify to notifier.PatientAdmitted
+• Invoke:
+  - AdmitPatient using "Meera"
+
+
+===============================================================
+TASK 4: Generic Delegate – Func for Bill Calculation
+===============================================================
+
+OBJECTIVE
+---------
+Calculate the total bill amount using Func.
+
+MANDATORY INSTRUCTIONS
+----------------------
+In the Main method:
+• Declare calculateBill of type Func<double, double, double>
+• Parameters:
+  - consultation
+  - tests
+• Return their sum
+• Invoke using values 600 and 1800
+• Store the result in total
+• Display total
+
+
+===============================================================
+TASK 5: Generic Delegate – Action for Logging
+===============================================================
+
+OBJECTIVE
+---------
+Log system activity using Action.
+
+MANDATORY INSTRUCTIONS
+----------------------
+In the Main method:
+• Declare logAction of type Action<string>
+• Accepts parameter message
+• Display message prefixed with a log label
+• Invoke using:
+  "Billing process completed"
+
+
+===============================================================
+TASK 6: Generic Delegate – Predicate for Validation
+===============================================================
+
+OBJECTIVE
+---------
+Validate patient age using Predicate.
+
+MANDATORY INSTRUCTIONS
+----------------------
+In the Main method:
+• Declare isSeniorCitizen of type Predicate<int>
+• Return true if age >= 60
+• Return false otherwise
+• Invoke using value 65
+• Store the result in result
+• Display result
+
+
+===============================================================
+TASK 7: MANDATORY EXECUTION ORDER
+===============================================================
+
+The following execution order MUST be followed inside Main:
+
+1. ReportGenerator delegate execution (report)
+2. HospitalAlert multicast delegate execution (alert)
+3. Event execution (PatientAdmitted)
+4. Func execution (calculateBill)
+5. Action execution (logAction)
+6. Predicate execution (isSeniorCitizen)
+
+
+===============================================================
+EXPECTED OUTPUT (IN EXECUTION ORDER)
+===============================================================
+
+1. Single-Cast Delegate Output
+-----------------------------
+Discharge summary generated for patient: Rahul
+
+
+2. Multicast Delegate Output
+----------------------------
+SMS Alert: Emergency patient detected!
+Email Alert: Emergency patient detected!
+Dashboard Alert: Emergency patient detected!
+
+
+3. Event Output
+---------------
+[ADMIN] Patient Meera admitted successfully. | <current date and time>
+
+
+4. Func Delegate Output
+-----------------------
+Total Bill Amount: 2400
+
+
+5. Action Delegate Output
+------------------------
+[LOG] Billing process completed
+
+
+6. Predicate Delegate Output
+----------------------------
+Is Senior Citizen: True
+
+
+===============================================================
+COMBINED EXPECTED OUTPUT (SUMMARY VIEW)
+===============================================================
+
+Discharge summary generated for patient: Rahul
+SMS Alert: Emergency patient detected!
+Email Alert: Emergency patient detected!
+Dashboard Alert: Emergency patient detected!
+[ADMIN] Patient Meera admitted successfully. | <current date and time>
+Total Bill Amount: 2400
+[LOG] Billing process completed
+Is Senior Citizen: True
