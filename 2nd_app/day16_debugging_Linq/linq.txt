@@ -1,0 +1,272 @@
+============================================================
+LINQ-Based Autonomous Robot Sensor Fusion & AI Decision System
+============================================================
+
+---------------------
+PROBLEM CONTEXT
+---------------------
+A smart manufacturing company is developing an autonomous mobile robot
+that operates inside a factory environment.
+
+The robot continuously receives sensor data related to:
+- Distance (obstacle detection)
+- Battery level
+- Temperature
+- Vibration
+
+You must build a **C# console-based AI decision system** that uses **LINQ**
+to:
+- Analyze real-time and historical sensor data
+- Detect unsafe conditions
+- Identify faulty sensors
+- Perform trend analysis
+- Compute confidence-weighted decisions
+- Decide the robot’s next action
+
+⚠️ IMPORTANT:
+The system must use **exact namespace names, class names, method names,
+parameter names, variable names, return types, and execution order**
+as specified below.
+Any deviation must be treated as incorrect.
+
+------------------------------------------------------------
+GLOBAL NAMING CONSTRAINTS (MANDATORY)
+------------------------------------------------------------
+- Namespace name must match exactly
+- Class names must match exactly
+- Method names must match exactly
+- Parameter names must match exactly
+- Variable names used in Main must match exactly
+- Return types must match exactly
+- No additional methods, classes, or variables are allowed
+- LINQ must be used where specified
+
+------------------------------------------------------------
+NAMESPACE SPECIFICATION
+------------------------------------------------------------
+Namespace:
+AutonomousRobot.AI
+
+============================================================
+CLASS SPECIFICATIONS
+============================================================
+
+---------------------
+Class 1: SensorReading
+---------------------
+Purpose:
+Represents a single sensor reading produced by the robot.
+
+Public Properties:
+- SensorId   : int
+- Type       : string
+- Value      : double
+- Timestamp  : DateTime
+- Confidence : double
+
+---------------------
+Enum: RobotAction
+---------------------
+Allowed Values:
+- Stop
+- SlowDown
+- Reroute
+- Continue
+
+---------------------
+Class 2: DecisionEngine
+---------------------
+Purpose:
+Contains all LINQ-based AI decision logic.
+
+============================================================
+TASK DEFINITIONS
+============================================================
+
+---------------------
+TASK 1: Filter Recent Sensor Readings
+---------------------
+Method Name:
+GetRecentReadings
+
+Return Type:
+List<SensorReading>
+
+Parameters:
+- List<SensorReading> sensorHistory
+- DateTime fromTime
+
+Rules:
+- Return only readings where Timestamp >= fromTime
+- LINQ Where must be used
+
+---------------------
+TASK 2: Detect Critical Battery Condition
+---------------------
+Method Name:
+IsBatteryCritical
+
+Return Type:
+bool
+
+Parameters:
+- readings
+
+Rules:
+- Return true if **any** Battery sensor has Value < 20
+
+---------------------
+TASK 3: Find Nearest Obstacle Distance
+---------------------
+Method Name:
+GetNearestObstacleDistance
+
+Return Type:
+double
+
+Parameters:
+- readings
+
+Rules:
+- Use LINQ to find minimum Value among Distance sensors
+- If no Distance sensor exists, return a safe large value
+
+---------------------
+TASK 4: Validate Temperature Safety
+---------------------
+Method Name:
+IsTemperatureSafe
+
+Return Type:
+bool
+
+Parameters:
+- readings
+
+Rules:
+- Return true only if **all** Temperature sensors have Value < 90
+
+---------------------
+TASK 5: Calculate Average Vibration Level
+---------------------
+Method Name:
+GetAverageVibration
+
+Return Type:
+double
+
+Parameters:
+- readings
+
+Rules:
+- Compute average vibration value
+- If no Vibration sensors exist, return 0
+
+---------------------
+TASK 6: Sensor Health Scoring
+---------------------
+Method Name:
+CalculateSensorHealth
+
+Return Type:
+Dictionary<string, double>
+
+Parameters:
+- sensorHistory
+
+Rules:
+- Group readings by sensor type
+- Calculate average Confidence per group
+
+---------------------
+TASK 7: Detect Faulty Sensors
+---------------------
+Method Name:
+DetectFaultySensors
+
+Return Type:
+List<string>
+
+Parameters:
+- sensorHistory
+
+Rules:
+- A sensor type is faulty if **more than 2 readings**
+  have Confidence < 0.4
+
+---------------------
+TASK 8: Battery Drain Trend Detection
+---------------------
+Method Name:
+IsBatteryDrainingFast
+
+Return Type:
+bool
+
+Parameters:
+- sensorHistory
+
+Rules:
+- Return true if Battery values **decrease continuously over time**
+
+---------------------
+TASK 9: Confidence-Weighted Distance Calculation
+---------------------
+Method Name:
+GetWeightedDistance
+
+Return Type:
+double
+
+Parameters:
+- readings
+
+Rules:
+- Calculate: (Value × Confidence) / Total Confidence
+
+---------------------
+TASK 10: Final Robot Decision
+---------------------
+Method Name:
+DecideRobotAction
+
+Return Type:
+RobotAction
+
+Parameters:
+- List<SensorReading> recentReadings
+- List<SensorReading> sensorHistory
+
+Decision Rules:
+- Battery critical        → Stop
+- Obstacle too close      → Reroute
+- Unsafe temperature
+  or vibration            → SlowDown
+- Otherwise               → Continue
+
+============================================================
+MANDATORY EXECUTION ORDER (STRICT)
+============================================================
+Inside the Main method, the following execution order
+must be followed **exactly**:
+
+1. GetRecentReadings
+2. IsBatteryCritical
+3. GetNearestObstacleDistance
+4. IsTemperatureSafe
+5. GetAverageVibration
+6. CalculateSensorHealth
+7. DetectFaultySensors
+8. IsBatteryDrainingFast
+9. GetWeightedDistance
+10. DecideRobotAction
+
+------------------------------------------------------------
+EVALUATION RULES (STRICT)
+------------------------------------------------------------
+- Any mismatch in namespace name is incorrect
+- Any mismatch in method names is incorrect
+- Any mismatch in parameter names is incorrect
+- Any deviation from execution order is incorrect
+- Hardcoded outputs are not allowed
+- LINQ must be used where specified
