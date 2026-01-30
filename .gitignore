@@ -51,4 +51,5 @@ artifacts/
 # Windows
 Thumbs.db
 M1 Assessment-Dotnet
-Remember.txt
+
+*.txt
