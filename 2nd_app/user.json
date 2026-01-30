@@ -1,0 +1,36 @@
+[
+  {
+    "Username": "tirtha",
+    "Email": "tirtharaj@gmail.com",
+    "Post": [
+      {
+        "AuthorUserName": "tirtha",
+        "Content": "hello there #nature welcome #user",
+        "CreatedAt": "2026-01-16T09:15:39.47808Z"
+      }
+    ],
+    "Following": [
+      "raman"
+    ]
+  },
+  {
+    "Username": "raman",
+    "Email": "raman@gmail.com",
+    "Post": [
+      {
+        "AuthorUserName": "raman",
+        "Content": "hello there #man post",
+        "CreatedAt": "2026-01-16T09:17:19.481432Z"
+      }
+    ],
+    "Following": [
+      "tirtha"
+    ]
+  },
+  {
+    "Username": "aakarsh",
+    "Email": "aakarsh@gmail.com",
+    "Post": [],
+    "Following": []
+  }
+]

@@ -1,7 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using AutonomousRobot.AI;
+using CalculatorDLL;
 class Program1
 {
-    public static void Main()
+    public static async Task Main()
     {
         // Console.WriteLine("Creating object....");
         // for(int i = 0; i < 5; i++)
@@ -68,13 +70,37 @@ class Program1
 
         //* Comparison delegate
         // Comparison<int> sortDescending = (a, b) => b.CompareTo(a);
-        // Console.WriteLine(sortDescending(10, 5));
-        // Console.WriteLine(sortDescending(5, 10));
-        // Console.WriteLine(sortDescending(5, 5));
+        // Console.WriteLine(sortDescending(10, 5));       //* -1
+        // Console.WriteLine(sortDescending(5, 10));    //* +1
+        // Console.WriteLine(sortDescending(5, 5));     //* 0
 
         // EcommerceAssessment.Program.main();
         // FileExample.cal();
-        StreamExample.cal();
+        // StreamExample.cal();
+        // SugarBliss.Program.main();
+        // debugging.Program.main();
+        // AutonomousRobot.AI.Program.main();
+
+        //! day-17
+        // AssemblyExample.AssemblyDemo.Run();
+        // ReflectionExample.TypeDemo.Run();
+
+        //! day-18
+        // Threading.Program.main();
+        // Threading1.Program.main();
+        // await async.Program.main();
+        // await file.Program.main();
+
+        //! day-19
+        // process.cal();
+        // Join.main();
+        // process1.Program.main();
+        // MiniSocialMedia.Program.main();
+
+        //! day-20
+        Calculator c = new Calculator();
+        Console.WriteLine(c.add(8, 2));
+        Console.WriteLine(c.sub(8, 2));
     }
 
     static void ButtonClick()
