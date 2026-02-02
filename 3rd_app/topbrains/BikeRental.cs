@@ -2,14 +2,13 @@ using System;
 
 public class Bike
 {
-    public string? Model{get; set;}
-    public string? Brand{get; set;}
+    public string Model{get; set;}
+    public string Brand{get; set;}
     public int PricePerDay{get; set;}
 }
 
 public class BikeUtility
 {
-    public static SortedDictionary<int, Bike> bikeDetails = new();
     public void AddBikeDetails(string model, string brand, int PricePerDay)
     {
         Bike b = new Bike()
@@ -18,8 +17,8 @@ public class BikeUtility
             Brand = brand,
             PricePerDay = PricePerDay
         };
-        bikeDetails[bikeDetails.Count + 1] = b;
-        Console.WriteLine("Done successfully....");
+        Program.bikeDetails[Program.bikeDetails.Count + 1] = b;
+        Console.WriteLine("Bike details added successfully");
     }
 
     public SortedDictionary<string, List<Bike>> GroupBikesByBrand()
@@ -37,6 +36,7 @@ public class BikeUtility
 
 public class Program
 {
+    public static SortedDictionary<int, Bike> bikeDetails = new();
     public static void main()
     {
         BikeUtility bike = new BikeUtility();
